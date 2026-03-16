@@ -1,28 +1,178 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# 🧪 Testes Automatizados - Central de Atendimento ao Cliente (CAC TAT)
 
-👋 Seja bem-vindo(a)!
+Este projeto contém **testes automatizados end-to-end (E2E)** desenvolvidos com **Cypress**, utilizando uma aplicação de exemplo chamada **Central de Atendimento ao Cliente (CAC TAT)**.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+O objetivo deste projeto é praticar e demonstrar técnicas de **automação de testes de interface**, validação de formulários e interação com elementos da página.
 
-## O que você vai aprender?
+---
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+# 🚀 Tecnologias Utilizadas
 
-## Vamos começar?
+* JavaScript
+* Cypress
+* Node.js
+* HTML
+* CSS
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+---
 
-___
+# 📂 Estrutura do Projeto
 
-Este é um curso da **Escola Talking About Testing**.
+```
+cypress-do-zero-a-nuvem
+│
+├── cypress
+│   ├── e2e
+│   │   └── cac-tat.cy.js
+│   │
+│   ├── fixtures
+│   │   └── example.json
+│   │
+│   ├── support
+│   │   ├── commands.js
+│   │   └── e2e.js
+│
+├── src
+│   └── index.html
+│
+├── cypress.config.js
+├── package.json
+└── README.md
+```
+
+---
+
+# ⚙️ Instalação do Projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+```
+
+Acesse a pasta do projeto:
+
+```bash
+cd cypress-do-zero-a-nuvem
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+---
+
+# ▶️ Executando os Testes
+
+### Abrir o Cypress (modo interativo)
+
+```bash
+npx cypress open
+```
+
+### Executar testes via terminal
+
+```bash
+npx cypress run
+```
+
+---
+
+# 🧪 Cenários de Teste Automatizados
+
+Os testes cobrem diversas funcionalidades da aplicação:
+
+### 📌 Validações da página
+
+* Verificar o **título da aplicação**
+* Acessar a página de **Política de Privacidade**
+
+### 📌 Testes de formulário
+
+* Envio do formulário com **campos obrigatórios preenchidos**
+* Validação de **email inválido**
+* Validação de **campos obrigatórios**
+* Validação de **telefone obrigatório**
+
+### 📌 Interação com campos
+
+* Preenchimento e limpeza de campos
+* Validação de **campo telefone apenas numérico**
+
+### 📌 Seleção de elementos
+
+* Seleção de produtos por:
+
+  * texto
+  * value
+  * índice
+
+### 📌 Radio buttons e checkboxes
+
+* Seleção de tipo de atendimento
+* Marcação e desmarcação de checkboxes
+
+### 📌 Upload de arquivos
+
+* Upload de arquivo usando:
+
+  * caminho direto
+  * drag and drop
+  * fixture com alias
+
+### 📌 Comandos customizados
+
+Utilização de comando customizado:
+
+```
+cy.fillMandatoryFieldsAndSubmit()
+```
+
+Para simplificar o preenchimento dos campos obrigatórios do formulário.
+
+---
+
+# 📎 Exemplo de Teste
+
+```javascript
+it('preenche os campos obrigatórios e envia o formulário', () => {
+  cy.get('[name="firstName"]').type("Melissa")
+  cy.get('[name="lastName"]').type("Arantes")
+  cy.get('[name="email"]').type("melissa@uol.com.br")
+  cy.get('[name="open-text-area"]').type("Preciso de ajuda")
+  cy.contains('.button', 'Enviar').click()
+
+  cy.get('.success').should("be.visible")
+})
+```
+
+---
+
+# 🎯 Objetivo do Projeto
+
+Este projeto foi desenvolvido com foco em:
+
+* prática de **automação de testes E2E**
+* uso do **Cypress**
+* boas práticas de testes automatizados
+* criação de **comandos customizados**
+* manipulação de elementos DOM
+
+Também serve como **projeto de portfólio para QA**.
+
+---
+
+# 👩‍💻 Autora
+
+**Melissa Arantes**
+
+* GitHub: https://github.com/melissaarantes-a11
+
+
+---
+
+
+
+
